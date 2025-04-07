@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     
     # our apps 
     'Account',
+    'hotels',  # hotels and room details
+    'Media',   #image and video upload 
     
     # External apps
     'rest_framework',
@@ -73,7 +75,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rentper_hospitality',
         'USER': 'root',
-        'PASSWORD': 'Root',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
     }
