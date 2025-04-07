@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rentper_hospitality',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'Root',
         'HOST': 'localhost',
         'PORT': '3306',
     }
