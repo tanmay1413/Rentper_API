@@ -26,4 +26,5 @@ class Media(models.Model):
     room_image=models.FileField(upload_to='media/',null=True, blank=True)
     hotel_image=models.FileField(upload_to='media/',null=True, blank=True)
 
+    
    

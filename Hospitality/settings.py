@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'Account',
     'hotels',  # hotels and room details
     'Media',   #image and video upload 
+    'Pricing', #pricing and payment details 
+    'Policies', #policies and rules
+    'Legal_documents', #legal documents
     
     # External apps
     'rest_framework',
