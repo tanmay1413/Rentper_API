@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     # our apps 
     'accounts',
     'hotels',  # hotels and room details
-    'Media',   #image and video upload 
+    # 'Media',   #image and video upload 
+    'gallery',
     
     # External apps
     'django.contrib.sites',
@@ -126,8 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -188,6 +187,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_UNIQUE_EMAIL = True
+LOGIN_URL = 'http://localhost:8000/accounts/api/auth/login'
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
 
