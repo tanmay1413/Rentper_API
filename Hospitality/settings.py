@@ -212,6 +212,11 @@ SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
+         'APP': {
+            'client_id': os.environ.get("CLIENT_ID"),
+            'secret': os.environ.get("SECRET"),
+            'key': ''
+        },
      
         "SCOPE": ["profile", "email"],
         "AUTH_PARAMS": {
@@ -220,3 +225,4 @@ SOCIALACCOUNT_PROVIDERS = {
         "OAUTH_PKCE_ENABLED": True,
     }
 }
+
