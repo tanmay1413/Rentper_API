@@ -21,7 +21,7 @@ class Amenity(models.Model):
     
 class specialService(models.Model):
     name = models.CharField(max_length=50)
-    price = models.CharField(max_length=10)
+    # price = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
@@ -70,7 +70,7 @@ class Room(models.Model):
     more = models.TextField(blank=True)
 
     def __str__(self):
-        return f"{self.room_type} - {self.hotel.name}"
+        return f"{self.id}-{self.room_type} - {self.hotel.name}"
 
 class HotelDetail(models.Model):
     hotel = models.OneToOneField(Hotel, on_delete=models.CASCADE)

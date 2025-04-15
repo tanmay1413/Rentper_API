@@ -35,9 +35,11 @@ INSTALLED_APPS = [
     
     # our apps 
     'accounts',
-    'hotels',  # hotels and room details
-    # 'Media',   #image and video upload 
+    'hotels',  
     'gallery',
+    'pricing_payments',
+    'policies',
+    'documents', 
     
     # External apps
     'django.contrib.sites',

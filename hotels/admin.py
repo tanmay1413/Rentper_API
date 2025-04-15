@@ -17,7 +17,7 @@ class AmenityAdmin(admin.ModelAdmin):
 
 @admin.register(specialService)
 class SpecialServiceAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price']
+    list_display = ['name']
 
 @admin.register(SafetyFeature)
 class SafetyFeatureAdmin(admin.ModelAdmin):

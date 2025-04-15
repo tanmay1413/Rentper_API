@@ -38,7 +38,7 @@ class AmenitySerializer(serializers.ModelSerializer):
 class SpecialServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = specialService
-        fields = ['id', 'name','price']
+        fields = ['id', 'name']
 
 class SafetyFeatureSerializer(serializers.ModelSerializer):
     class Meta:
