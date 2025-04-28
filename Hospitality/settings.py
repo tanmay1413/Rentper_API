@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pricing_payments',
     'policies',
     'documents', 
+    'dashboard',
     
     # External apps
     'django.contrib.sites',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'dj_rest_auth',
+    'celery',
+    'django_filters',
     
     'allauth',
     'allauth.account',
@@ -158,7 +161,9 @@ REST_FRAMEWORK = {
     
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    
+     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
     
 }
 
@@ -192,6 +197,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_URL = 'http://localhost:8000/accounts/api/auth/login'
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
+ACCOUNT_ADAPTER = 'accounts.adapter.CustomAccountAdapter'
 
 
 # Django SMTP
@@ -214,11 +220,11 @@ SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
-         'APP': {
-            'client_id': os.environ.get("CLIENT_ID"),
-            'secret': os.environ.get("SECRET"),
-            'key': ''
-        },
+        #  'APP': {
+        #     'client_id': os.environ.get("CLIENT_ID"),
+        #     'secret': os.environ.get("SECRET"),
+        #     'key': ''
+        # },
      
         "SCOPE": ["profile", "email"],
         "AUTH_PARAMS": {
@@ -227,4 +233,13 @@ SOCIALACCOUNT_PROVIDERS = {
         "OAUTH_PKCE_ENABLED": True,
     }
 }
+
+
+# settings.py
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
 

@@ -6,6 +6,7 @@ class HotelMediaAdmin(admin.ModelAdmin):
     list_display = ['hotel', 'preview_file', 'uploaded_at']
     readonly_fields = ['preview_file', 'uploaded_at']
     list_filter = ['hotel']
+    search_fields = ['hotel__name']
     
     def preview_file(self, obj):
         if obj.file:
@@ -24,7 +25,7 @@ class RoomTypeMediaAdmin(admin.ModelAdmin):
     list_display = ['room_type', 'get_hotel', 'preview_file', 'uploaded_at']
     readonly_fields = ['preview_file', 'uploaded_at']
     list_filter = ['room_type__hotel', 'room_type']
-    
+    search_fields = ['room_type__hotel__name', 'room_type__room_type']
     def get_hotel(self, obj):
         return obj.room_type.hotel
     

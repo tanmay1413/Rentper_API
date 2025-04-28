@@ -12,6 +12,7 @@ urlpatterns = [
     path('pricing-payments/',include('pricing_payments.urls')),
     path('policies/',include('policies.urls')),
     path('documents/',include('documents.urls')),
+    path('dashboard/',include('dashboard.urls')),
     
 ]
 if settings.DEBUG:

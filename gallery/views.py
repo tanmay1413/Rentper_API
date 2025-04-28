@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework import viewsets , status
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import HotelMedia, RoomTypeMedia
 from .serializers import HotelMediaSerializer, RoomTypeMediaSerializer
 
@@ -7,6 +8,8 @@ from .serializers import HotelMediaSerializer, RoomTypeMediaSerializer
 class HotelMediaViewSet(viewsets.ModelViewSet):
     queryset = HotelMedia.objects.all()
     serializer_class = HotelMediaSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['hotel_id']
 
     def create(self, request, *args, **kwargs):
         files = request.FILES.getlist('file')
@@ -25,6 +28,8 @@ class HotelMediaViewSet(viewsets.ModelViewSet):
 class RoomTypeMediaViewSet(viewsets.ModelViewSet):
     queryset = RoomTypeMedia.objects.all()
     serializer_class = RoomTypeMediaSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['room_type__hotel']
 
     def create(self, request, *args, **kwargs):
         files = request.FILES.getlist('file')

@@ -21,7 +21,6 @@ class Amenity(models.Model):
     
 class specialService(models.Model):
     name = models.CharField(max_length=50)
-    # price = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
@@ -57,6 +56,9 @@ class Address(models.Model):
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=10)
     landmark = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return f"{self.hotel.name} - {self.address}, {self.city}"
 
 class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
@@ -78,3 +80,6 @@ class HotelDetail(models.Model):
     safety_features = models.ManyToManyField(SafetyFeature)
     special_services = models.ManyToManyField(specialService,blank=True)
     more = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.hotel.name 

@@ -18,8 +18,8 @@ from .views import *
 
 router = DefaultRouter()
 router.register('hotels', HotelViewSet)
-router.register('contacts', ContactViewSet)
-router.register('addresses', AddressViewSet)
+router.register('contacts', ContactViewSet, basename='contact')
+router.register('addresses', AddressViewSet, basename='address')
 router.register('rooms', RoomViewSet)
 router.register('details', HotelDetailViewSet)
 
