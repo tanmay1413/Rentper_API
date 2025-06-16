@@ -51,12 +51,14 @@ class Contact(models.Model):
         return self.owner_first_name + " " + self.owner_last_name
 
 class Address(models.Model):
-    hotel = models.OneToOneField(Hotel, on_delete=models.CASCADE)
+    hotel = models.OneToOneField(Hotel, on_delete=models.CASCADE,related_name='address')
     address = models.TextField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=10)
     landmark = models.CharField(max_length=255)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
 class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
